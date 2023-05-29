@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      bbackground-color: lightblue;
+      width: 250px;
+      height: 350px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .card h1 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+
+  <script>
+    let products = [];
+
+    let input1 = parseInt(prompt('Enter how many cards you want to print'));
+
+    for (let i = 0; i < input1; i++) {
+      let prompt1 = prompt('Enter Your Name');
+      let prompt2 = prompt('Enter Age');
+      let prompt3 = prompt('Enter Image URL');
+
+      let obj1 = { Name: prompt1, Age: prompt2, Image: prompt3 };
+
+      products.push(obj1);
+    }
+
+    const container = document.querySelector('.container');
+
+    products.forEach((element, index) => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const img = document.createElement('img');
+      img.src = element.Image;
+
+      const name = document.createElement('h1');
+      name.textContent = `${element.Name} ${index + 1}`;
+
+      const age = document.createElement('h1');
+      age.textContent = element.Age;
+
+      card.appendChild(img);
+      card.appendChild(name);
+      card.appendChild(age);
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
