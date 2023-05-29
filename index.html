@@ -29,9 +29,9 @@
     }
 
     .card {
-      bbackground-color: lightblue;
+      background-color: blanchedalmond;
       width: 250px;
-      height: 350px;
+      height: 300px;
       border-radius: 5px;
       display: flex;
       flex-direction: column;
@@ -65,10 +65,9 @@
 
     for (let i = 0; i < input1; i++) {
       let prompt1 = prompt('Enter Your Name');
-      let prompt2 = prompt('Enter Age');
       let prompt3 = prompt('Enter Image URL');
 
-      let obj1 = { Name: prompt1, Age: prompt2, Image: prompt3 };
+      let obj1 = { Name: prompt1, Image: prompt3 };
 
       products.push(obj1);
     }
@@ -85,12 +84,8 @@
       const name = document.createElement('h1');
       name.textContent = `${element.Name} ${index + 1}`;
 
-      const age = document.createElement('h1');
-      age.textContent = element.Age;
-
       card.appendChild(img);
       card.appendChild(name);
-      card.appendChild(age);
 
       container.appendChild(card);
     });
